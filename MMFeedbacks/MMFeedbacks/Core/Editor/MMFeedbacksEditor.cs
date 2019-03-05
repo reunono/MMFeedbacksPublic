@@ -85,25 +85,21 @@ namespace MoreMountains.Feedbacks
         void OnEnable()
         {
             // Get properties
-
             _mmfeedbacks = serializedObject.FindProperty("Feedbacks");
             _mmfeedbacksInitializationMode = serializedObject.FindProperty("InitializationMode");
 
             // Create editors
-
             _editors = new Dictionary<MMFeedback, Editor>();
             for (int i = 0; i < _mmfeedbacks.arraySize; i++)
                 AddEditor(_mmfeedbacks.GetArrayElementAtIndex(i).objectReferenceValue as MMFeedback);
 
             // Retrieve available feedbacks
-
             _types = (from domainAssembly in System.AppDomain.CurrentDomain.GetAssemblies()
                      from assemblyType in domainAssembly.GetTypes()
                      where assemblyType.IsSubclassOf(typeof(MMFeedback))
                      select assemblyType).ToList();
 
             // Create display list from types
-
             List<string> typeNames = new List<string>();
             typeNames.Add("Add new feedback...");
             for (int i = 0; i < _types.Count; i++)
