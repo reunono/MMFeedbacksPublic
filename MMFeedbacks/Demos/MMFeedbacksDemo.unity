@@ -6149,12 +6149,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 347013242dca7c44fb5001793033ea59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PositionActive: 0
-  RotationActive: 0
-  ScaleActive: 0
+  PositionActive: 1
+  RotationActive: 1
+  ScaleActive: 1
   PositionWiggleProperties:
     WigglePermitted: 1
-    WiggleType: 1
+    WiggleType: 3
     UseUnscaledTime: 0
     StartWigglingAutomatically: 1
     SmoothPingPong: 1
@@ -6185,8 +6185,8 @@ MonoBehaviour:
       m_RotationOrder: 4
     FrequencyMin: 0
     FrequencyMax: 1
-    AmplitudeMin: {x: 0, y: 0, z: 0}
-    AmplitudeMax: {x: 1, y: 1, z: 1}
+    AmplitudeMin: {x: 0, y: 0.3, z: 0}
+    AmplitudeMax: {x: 0, y: 0.3, z: 0}
     RelativeAmplitude: 1
     PauseMin: 0
     PauseMax: 0
@@ -6218,13 +6218,13 @@ MonoBehaviour:
       m_RotationOrder: 4
     LimitedTimeResetValue: 1
     LimitedTimeLeft: 0
-    NoiseFrequencyMin: {x: 0, y: 0, z: 0}
-    NoiseFrequencyMax: {x: 1, y: 1, z: 1}
-    NoiseShiftMin: {x: 0, y: 0, z: 0}
-    NoiseShiftMax: {x: 0, y: 0, z: 0}
+    NoiseFrequencyMin: {x: 0, y: 1, z: 0}
+    NoiseFrequencyMax: {x: 0, y: 1, z: 0}
+    NoiseShiftMin: {x: 0, y: 1, z: 0}
+    NoiseShiftMax: {x: 0, y: 1, z: 0}
   RotationWiggleProperties:
     WigglePermitted: 1
-    WiggleType: 1
+    WiggleType: 3
     UseUnscaledTime: 0
     StartWigglingAutomatically: 1
     SmoothPingPong: 1
@@ -6255,8 +6255,8 @@ MonoBehaviour:
       m_RotationOrder: 4
     FrequencyMin: 0
     FrequencyMax: 1
-    AmplitudeMin: {x: 0, y: 0, z: 0}
-    AmplitudeMax: {x: 1, y: 1, z: 1}
+    AmplitudeMin: {x: 0, y: 360, z: 0}
+    AmplitudeMax: {x: 0, y: 360, z: 0}
     RelativeAmplitude: 1
     PauseMin: 0
     PauseMax: 0
@@ -6288,13 +6288,13 @@ MonoBehaviour:
       m_RotationOrder: 4
     LimitedTimeResetValue: 1
     LimitedTimeLeft: 0
-    NoiseFrequencyMin: {x: 0, y: 0, z: 0}
-    NoiseFrequencyMax: {x: 1, y: 1, z: 1}
+    NoiseFrequencyMin: {x: 0, y: 0.25, z: 0}
+    NoiseFrequencyMax: {x: 0, y: 0.25, z: 0}
     NoiseShiftMin: {x: 0, y: 0, z: 0}
     NoiseShiftMax: {x: 0, y: 0, z: 0}
   ScaleWiggleProperties:
     WigglePermitted: 1
-    WiggleType: 1
+    WiggleType: 3
     UseUnscaledTime: 0
     StartWigglingAutomatically: 1
     SmoothPingPong: 1
@@ -6325,8 +6325,8 @@ MonoBehaviour:
       m_RotationOrder: 4
     FrequencyMin: 0
     FrequencyMax: 1
-    AmplitudeMin: {x: 0, y: 0, z: 0}
-    AmplitudeMax: {x: 1, y: 1, z: 1}
+    AmplitudeMin: {x: 5, y: 5, z: 5}
+    AmplitudeMax: {x: 10, y: 10, z: 10}
     RelativeAmplitude: 1
     PauseMin: 0
     PauseMax: 0
@@ -6358,10 +6358,10 @@ MonoBehaviour:
       m_RotationOrder: 4
     LimitedTimeResetValue: 1
     LimitedTimeLeft: 0
-    NoiseFrequencyMin: {x: 0, y: 0, z: 0}
-    NoiseFrequencyMax: {x: 1, y: 1, z: 1}
-    NoiseShiftMin: {x: 0, y: 0, z: 0}
-    NoiseShiftMax: {x: 0, y: 0, z: 0}
+    NoiseFrequencyMin: {x: 1, y: 2, z: 0.5}
+    NoiseFrequencyMax: {x: 1, y: 2, z: 0.5}
+    NoiseShiftMin: {x: 1, y: 3, z: 2}
+    NoiseShiftMax: {x: 1, y: 3, z: 2}
   DebugWiggleDuration: 2
 --- !u!135 &481573840
 SphereCollider:
@@ -7152,7 +7152,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 699640084}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.906, y: -1.487, z: 9.158}
+  m_LocalPosition: {x: -1.75, y: -1.487, z: 9.158}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 743063560}
@@ -12076,7 +12076,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 966776779}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.74, y: 1.78, z: 9.725}
+  m_LocalPosition: {x: -1.74, y: 1.78, z: 9.02}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children: []
   m_Father: {fileID: 1633704226}
@@ -12322,7 +12322,7 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 1, g: 0.36142966, b: 0, a: 1}
-  m_Intensity: 3
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -12357,7 +12357,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 979003598}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.985, y: -0.211, z: 8.295}
+  m_LocalPosition: {x: 0.985, y: -0.193, z: 8.295}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 950021599}
@@ -13060,6 +13060,7 @@ GameObject:
   - component: {fileID: 1339142756}
   - component: {fileID: 1339142757}
   - component: {fileID: 1339142758}
+  - component: {fileID: 1339142759}
   m_Layer: 0
   m_Name: TestCharacterFeedbacks
   m_TagString: Untagged
@@ -13101,6 +13102,7 @@ MonoBehaviour:
   - {fileID: 1339142756}
   - {fileID: 1339142757}
   - {fileID: 1339142758}
+  - {fileID: 1339142759}
   InitializationMode: 2
   DebugActive: 0
 --- !u!114 &1339142752
@@ -13370,6 +13372,35 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   ShakeThresholdAmplitude: -0.2
+--- !u!114 &1339142759
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339142749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c2ce51367856bd49b72678cc4263225, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Active: 1
+  Label: Sound
+  Timing:
+    InitialDelay: 0.75
+    CooldownDuration: 0
+    NumberOfRepeats: 0
+    RepeatForever: 0
+    DelayBetweenRepeats: 1
+  DebugActive: 0
+  Sfx: {fileID: 8300000, guid: 2022dcb1a6b4a7f49ba4f9de4ef3f48e, type: 3}
+  RandomSfx: []
+  PlayMethod: 2
+  MinVolume: 1
+  MaxVolume: 1
+  MinPitch: 1
+  MaxPitch: 1
+  SfxAudioMixerGroup: {fileID: 0}
 --- !u!1 &1404019861 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 93667318b5de24146bffa2041c96fcd8,
@@ -13430,16 +13461,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 347013242dca7c44fb5001793033ea59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PositionActive: 0
-  RotationActive: 0
+  PositionActive: 1
+  RotationActive: 1
   ScaleActive: 0
   PositionWiggleProperties:
     WigglePermitted: 1
-    WiggleType: 1
+    WiggleType: 2
     UseUnscaledTime: 0
     StartWigglingAutomatically: 1
     SmoothPingPong: 1
-    UseSpeedCurve: 0
+    UseSpeedCurve: 1
     SpeedCurve:
       serializedVersion: 2
       m_Curve:
@@ -13447,27 +13478,27 @@ MonoBehaviour:
         time: 0
         value: 0
         inSlope: 0
-        outSlope: 1
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 1
         outSlope: 0
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0
-        outWeight: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    FrequencyMin: 0
+    FrequencyMin: 1
     FrequencyMax: 1
     AmplitudeMin: {x: 0, y: 0, z: 0}
-    AmplitudeMax: {x: 1, y: 1, z: 1}
+    AmplitudeMax: {x: 0, y: 0.5, z: 0}
     RelativeAmplitude: 1
     PauseMin: 0
     PauseMax: 0
@@ -13505,11 +13536,11 @@ MonoBehaviour:
     NoiseShiftMax: {x: 0, y: 0, z: 0}
   RotationWiggleProperties:
     WigglePermitted: 1
-    WiggleType: 1
+    WiggleType: 2
     UseUnscaledTime: 0
     StartWigglingAutomatically: 1
     SmoothPingPong: 1
-    UseSpeedCurve: 0
+    UseSpeedCurve: 1
     SpeedCurve:
       serializedVersion: 2
       m_Curve:
@@ -13517,27 +13548,27 @@ MonoBehaviour:
         time: 0
         value: 0
         inSlope: 0
-        outSlope: 1
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 1
         outSlope: 0
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0
-        outWeight: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    FrequencyMin: 0
-    FrequencyMax: 1
+    FrequencyMin: 2
+    FrequencyMax: 2
     AmplitudeMin: {x: 0, y: 0, z: 0}
-    AmplitudeMax: {x: 1, y: 1, z: 1}
+    AmplitudeMax: {x: 0, y: 360, z: 0}
     RelativeAmplitude: 1
     PauseMin: 0
     PauseMax: 0
@@ -13709,7 +13740,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000030517578}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0.000061035}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &1469520642
@@ -13947,7 +13978,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1579498607}
   m_LocalRotation: {x: -0, y: 0.2588191, z: -0, w: 0.9659258}
-  m_LocalPosition: {x: 2.22, y: -1.8349886, z: 9}
+  m_LocalPosition: {x: 2.139, y: -1.443, z: 9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1258569136}
@@ -15260,7 +15291,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1845085867}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.8807691, y: -1.1149886, z: 10.47}
+  m_LocalPosition: {x: 2.51, y: -0.053, z: 10.439}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 950021599}
@@ -15277,7 +15308,7 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 1, g: 0.36142966, b: 0, a: 1}
-  m_Intensity: 3
+  m_Intensity: 2
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -15500,7 +15531,7 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 0.031372547, g: 0.6065378, b: 1, a: 1}
-  m_Intensity: 3
+  m_Intensity: 2
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10

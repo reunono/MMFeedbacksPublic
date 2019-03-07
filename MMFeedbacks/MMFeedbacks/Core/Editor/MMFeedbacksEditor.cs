@@ -369,9 +369,20 @@ namespace MoreMountains.Feedbacks
                 {
                     (target as MMFeedbacks).StopFeedbacks();
                 }
-                if (GUILayout.Button("Reset", EditorStyles.miniButtonRight))
+                if (GUILayout.Button("Reset", EditorStyles.miniButtonMid))
                 {
                     (target as MMFeedbacks).ResetFeedbacks();
+                }
+                EditorGUI.BeginChangeCheck();
+                {
+                    _debugView = GUILayout.Toggle(_debugView, "Debug View", EditorStyles.miniButtonRight);
+
+                    if (EditorGUI.EndChangeCheck())
+                    {
+                        foreach (var f in (target as MMFeedbacks).Feedbacks)
+                            f.hideFlags = _debugView ? HideFlags.HideInInspector : HideFlags.None;
+                        UnityEditorInternal.InternalEditorUtility.RepaintAllViews();
+                    }
                 }
             }
             EditorGUILayout.EndHorizontal();
@@ -379,17 +390,7 @@ namespace MoreMountains.Feedbacks
 
             // Debug draw
 
-            EditorGUI.BeginChangeCheck();
-            {
-                _debugView = GUILayout.Toggle(_debugView, "Toggle Debug View", "Button");
-
-                if (EditorGUI.EndChangeCheck())
-                {
-                    foreach (var f in (target as MMFeedbacks).Feedbacks)
-                        f.hideFlags = _debugView ? HideFlags.HideInInspector : HideFlags.None;
-                    UnityEditorInternal.InternalEditorUtility.RepaintAllViews();
-                }
-            }
+            
 
             if (_debugView)
             {

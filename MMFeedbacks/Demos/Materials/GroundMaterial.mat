@@ -7,9 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CheckersMaterial
+  m_Name: GroundMaterial
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: _NORMALMAP
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -20,7 +20,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 985748c2d7f22d44db5f219d04f978fa, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -37,11 +37,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 25, y: 25}
+        m_Scale: {x: 5, y: 5}
         m_Offset: {x: -4.5, y: -4.5}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 8546e7236aded9949b1946edd49b6774, type: 3}
-        m_Scale: {x: 25, y: 25}
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 5, y: 5}
         m_Offset: {x: -4.5, y: -4.5}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
@@ -73,5 +73,5 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.084905684, g: 0.084905684, b: 0.084905684, a: 1}
+    - _Color: {r: 0.46226418, g: 0.46226418, b: 0.46226418, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
