@@ -312,7 +312,6 @@ namespace MoreMountains.Feedbacks
             {
                 float curveProgress = (properties.LimitedTimeTotal - properties.LimitedTimeLeft) / properties.LimitedTimeTotal;
                 float curvePercent = properties.LimitedTimeFalloff.Evaluate(curveProgress);
-                //Debug.Log("curve percent : " + curvePercent);
                 newValue = newValue * curvePercent; //Vector3.LerpUnclamped(startValue, destinationValue, curvePercent);
             }
             return newValue;
@@ -360,8 +359,6 @@ namespace MoreMountains.Feedbacks
             ref Vector3 randomAmplitude, ref float randomFrequency,
             ref float pauseDuration, float frequency)
         {
-            //Debug.Log("going from " + initialValue + " to " + destinationValue);
-
             timeSinceLastPause += properties.GetDeltaTime();
             timeSinceLastValueChange += properties.GetDeltaTime();
 
@@ -370,22 +367,16 @@ namespace MoreMountains.Feedbacks
             {
                 return false;
             }
-
-            //Debug.Log("NOT in pause, time since last pause : " + timeSinceLastPause + " pause duration : " + _positionPauseDuration);
-
+            
             // if we're just out of a pause
             if (timeSinceLastPause == timeSinceLastValueChange)
             {
-                //Debug.Log("just out of a pause");
                 timeSinceLastValueChange = 0f;
             }
 
             // if we've reached the end
             if (frequency > 0)
             {
-
-                //Debug.Log("moving from : " + startValue + " to " + destinationValue);
-
                 float curveProgress = (timeSinceLastValueChange) / frequency;
 
                 if (!properties.UseSpeedCurve)
@@ -401,7 +392,6 @@ namespace MoreMountains.Feedbacks
 
                 if (timeSinceLastValueChange > frequency)
                 {
-                    //Debug.Log("we've reached the end");
                     timeSinceLastValueChange = 0f;
                     timeSinceLastPause = 0f;
                     movedValue = destinationValue;
@@ -430,7 +420,6 @@ namespace MoreMountains.Feedbacks
             {
                 case WiggleTypes.PingPong:
 
-                    //Debug.Log("new value : " + newValue + " amp min : "+amplitudeMin + " amp max : "+amplitudeMax + " init value : "+ initialValue);
                     if (properties.RelativeAmplitude)
                     {
                         if (newValue == properties.AmplitudeMin + initialValue)
@@ -440,13 +429,11 @@ namespace MoreMountains.Feedbacks
                         }
                         else
                         {
-                            //Debug.Log("not equal, distance = "+Vector3.Distance(newValue, amplitudeMin));
                             newValue = properties.AmplitudeMin;
                             startValue = properties.AmplitudeMax;
                         }
                         startValue += initialValue;
                         newValue += initialValue;
-                        //Debug.Log("new value after : " + newValue + " amp min : " + properties.AmplitudeMin + " amp max : " + properties.AmplitudeMax + " init value : " + initialValue);
                     }
                     else
                     {

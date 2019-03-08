@@ -43,7 +43,6 @@ namespace MoreMountains.Feedbacks
                 property.Next(true);
                 do
                 {
-                    //Debug.Log(property.name + " : " + property.type);
                     if (!IgnoreList.Contains(property.name))
                     {
                         Properties.Add(property.Copy());
