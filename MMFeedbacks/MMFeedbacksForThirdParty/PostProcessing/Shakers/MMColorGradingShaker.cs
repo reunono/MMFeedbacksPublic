@@ -105,8 +105,8 @@ namespace MoreMountains.FeedbacksForThirdParty
 
         public virtual void OnMMColorGradingShakeEvent(float duration, AnimationCurve postExposure, float postExposureAmplitude, AnimationCurve hueShift, float hueShiftAmplitude,
             AnimationCurve saturation, float saturationAmplitude, AnimationCurve contrast, float contrastAmplitude, bool relativeIntensity = false, float attenuation = 1.0f, int channel = 0)
-        {            
-            if (channel != Channel)
+        {
+            if ((channel != Channel) && (channel != -1) && (Channel != -1))
             {
                 return;
             }

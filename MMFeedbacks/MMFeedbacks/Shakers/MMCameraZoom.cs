@@ -150,7 +150,7 @@ namespace MoreMountains.FeedbacksForThirdParty
         /// <param name="zoomEvent"></param>
         public virtual void OnCameraZoomEvent(MMCameraZoomModes mode, float newFieldOfView, float transitionDuration, float duration, int channel)
         {
-            if (channel != Channel)
+            if ((channel != Channel) && (channel != -1) && (Channel != -1))
             {
                 return;
             }

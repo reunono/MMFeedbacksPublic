@@ -77,8 +77,8 @@ namespace MoreMountains.FeedbacksForThirdParty
 
 
         public virtual void OnMMChromaticAberrationShakeEvent(AnimationCurve intensity, float duration, float amplitude, bool relativeIntensity = false, float attenuation = 1.0f, int channel = 0)
-        {            
-            if (channel != Channel)
+        {
+            if ((channel != Channel) && (channel != -1) && (Channel != -1))
             {
                 return;
             }

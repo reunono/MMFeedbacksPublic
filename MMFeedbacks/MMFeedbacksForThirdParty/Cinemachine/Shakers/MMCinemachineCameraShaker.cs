@@ -124,7 +124,7 @@ namespace MoreMountains.FeedbacksForThirdParty
 
         public virtual void OnCameraShakeEvent(float duration, float amplitude, float frequency, int channel)
         {
-            if (channel != Channel)
+            if ((channel != Channel) && (channel != -1) && (Channel != -1))
             {
                 return;
             }

@@ -103,11 +103,16 @@ namespace MoreMountains.Feedbacks
 		/// </summary>
 		public void OnMMFlashEvent(Color flashColor, float duration, float alpha, int flashID, int channel)
         {
-            if ((flashID != FlashID) || (channel != Channel))
+            if (flashID != FlashID) 
             {
                 return;
             }
-            
+
+            if ((channel != Channel) && (channel != -1) && (Channel != -1))
+            {
+                return;
+            }
+
             if (!_flashing)
             {
                 _flashing = true;

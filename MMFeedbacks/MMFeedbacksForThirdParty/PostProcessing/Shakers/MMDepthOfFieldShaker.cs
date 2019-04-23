@@ -102,7 +102,7 @@ namespace MoreMountains.FeedbacksForThirdParty
                                                         AnimationCurve focalLengthIntensity, float focalLengthAmplitude, float attenuation = 1.0f,
                                                         int channel = 0)
         {
-            if (channel != Channel)
+            if ((channel != Channel) && (channel != -1) && (Channel != -1))
             {
                 return;
             }
