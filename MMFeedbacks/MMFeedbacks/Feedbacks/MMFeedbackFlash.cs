@@ -13,6 +13,8 @@ namespace MoreMountains.Feedbacks
     public class MMFeedbackFlash : MMFeedback
     {
         [Header("Flash")]
+        /// the channel to broadcast that flash event on
+        public int Channel = 0;
         /// the color of the flash
         public Color FlashColor = Color.white;
         /// the flash duration (in seconds)
@@ -31,7 +33,7 @@ namespace MoreMountains.Feedbacks
         {
             if (Active)
             {
-                MMFlashEvent.Trigger(FlashColor, FlashDuration * attenuation, FlashAlpha, FlashID);
+                MMFlashEvent.Trigger(FlashColor, FlashDuration * attenuation, FlashAlpha, FlashID, Channel);
             }
         }
     }

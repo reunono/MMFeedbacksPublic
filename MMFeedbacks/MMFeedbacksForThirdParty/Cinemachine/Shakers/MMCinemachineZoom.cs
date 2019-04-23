@@ -13,6 +13,8 @@ namespace MoreMountains.FeedbacksForThirdParty
     [RequireComponent(typeof(Cinemachine.CinemachineVirtualCamera))]
     public class MMCinemachineZoom : MonoBehaviour
     {
+        public int Channel = 0;
+
         [Header("Transition Speed")]
         /// the animation curve to apply to the zoom transition
         public AnimationCurve ZoomCurve = new AnimationCurve(new Keyframe(0f, 0f), new Keyframe(1f, 1f));
@@ -147,8 +149,12 @@ namespace MoreMountains.FeedbacksForThirdParty
         /// When we get an MMCameraZoomEvent we call our zoom method 
         /// </summary>
         /// <param name="zoomEvent"></param>
-        public virtual void OnCameraZoomEvent(MMCameraZoomModes mode, float newFieldOfView, float transitionDuration, float duration)
+        public virtual void OnCameraZoomEvent(MMCameraZoomModes mode, float newFieldOfView, float transitionDuration, float duration, int channel)
         {
+            if (channel != Channel)
+            {
+                return;
+            }
             this.Zoom(mode, newFieldOfView, transitionDuration, duration);
         }
 

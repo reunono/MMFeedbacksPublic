@@ -13,6 +13,7 @@ namespace MoreMountains.Feedbacks
     public class MMFeedbackCameraShake : MMFeedback
     {
         [Header("Camera Shake")]
+        public int Channel = 0;
         /// the properties of the shake (duration, intensity, frequenc)
         public MMCameraShakeProperties CameraShakeProperties = new MMCameraShakeProperties(0.1f, 0.2f, 40f);
 
@@ -25,7 +26,7 @@ namespace MoreMountains.Feedbacks
         {
             if (Active)
             {
-                MMCameraShakeEvent.Trigger(CameraShakeProperties.Duration, CameraShakeProperties.Amplitude * attenuation, CameraShakeProperties.Frequency);
+                MMCameraShakeEvent.Trigger(CameraShakeProperties.Duration, CameraShakeProperties.Amplitude * attenuation, CameraShakeProperties.Frequency, Channel);
             }
         }
     }

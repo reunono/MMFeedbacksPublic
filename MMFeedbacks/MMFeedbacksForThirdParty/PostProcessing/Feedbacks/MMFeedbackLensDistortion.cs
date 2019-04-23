@@ -13,6 +13,7 @@ namespace MoreMountains.FeedbacksForThirdParty
     public class MMFeedbackLensDistortion : MMFeedback
     {
         [Header("Lens Distortion")]
+        public int Channel = 0;
         public bool RelativeIntensity = false;
         public AnimationCurve Intensity = new AnimationCurve(new Keyframe(0, 0),
                                                                     new Keyframe(0.2f, 1),
@@ -31,7 +32,7 @@ namespace MoreMountains.FeedbacksForThirdParty
         {
             if (Active)
             {
-                MMLensDistortionShakeEvent.Trigger(Intensity, Duration, Amplitude, RelativeIntensity, attenuation);
+                MMLensDistortionShakeEvent.Trigger(Intensity, Duration, Amplitude, RelativeIntensity, attenuation, Channel);
             }
         }
     }

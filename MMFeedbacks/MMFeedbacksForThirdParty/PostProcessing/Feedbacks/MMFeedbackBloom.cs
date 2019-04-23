@@ -12,6 +12,7 @@ namespace MoreMountains.FeedbacksForThirdParty
     public class MMFeedbackBloom : MMFeedback
     {
         [Header("Bloom")]
+        public int Channel = 0;
         public float ShakeDuration = 0.2f;
         public bool RelativeIntensity = true;
         public AnimationCurve ShakeIntensity = new AnimationCurve(new Keyframe(0, 0), new Keyframe(0.5f, 1), new Keyframe(1, 0));
@@ -23,7 +24,7 @@ namespace MoreMountains.FeedbacksForThirdParty
         {
             if (Active)
             {
-                MMBloomShakeEvent.Trigger(ShakeDuration, ShakeIntensity, ShakeIntensityAmplitude, ShakeThreshold, ShakeThresholdAmplitude, RelativeIntensity, attenuation);
+                MMBloomShakeEvent.Trigger(ShakeDuration, ShakeIntensity, ShakeIntensityAmplitude, ShakeThreshold, ShakeThresholdAmplitude, RelativeIntensity, attenuation, Channel);
             }
         }
     }

@@ -13,6 +13,7 @@ namespace MoreMountains.FeedbacksForThirdParty
     public class MMFeedbackVignette : MMFeedback
     {
         [Header("Vignette")]
+        public int Channel = 0;
         public AnimationCurve Intensity = new AnimationCurve(new Keyframe(0, 0), new Keyframe(0.5f, 1), new Keyframe(1, 0));
         public float Duration = 0.2f;
         public float Amplitude = 1.0f;
@@ -22,7 +23,7 @@ namespace MoreMountains.FeedbacksForThirdParty
         {
             if (Active)
             {
-                MMVignetteShakeEvent.Trigger(Intensity, Duration, Amplitude, RelativeIntensity, attenuation);
+                MMVignetteShakeEvent.Trigger(Intensity, Duration, Amplitude, RelativeIntensity, attenuation, Channel);
             }
         }
     }

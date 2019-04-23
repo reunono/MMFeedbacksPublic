@@ -13,6 +13,8 @@ namespace MoreMountains.FeedbacksForThirdParty
     public class MMFeedbackColorGrading : MMFeedback
     {
         [Header("Color Grading")]
+        public int Channel = 0;
+
         public float ShakeDuration = 1f;
         public bool RelativeIntensity = true;
 
@@ -33,7 +35,7 @@ namespace MoreMountains.FeedbacksForThirdParty
             if (Active)
             {
                 MMColorGradingShakeEvent.Trigger(ShakeDuration, PostExposure, PostExposureAmplitude, HueShift, HueShiftAmplitude, Saturation, SaturationAmplitude,
-                    Contrast, ContrastAmplitude, RelativeIntensity, attenuation);
+                    Contrast, ContrastAmplitude, RelativeIntensity, attenuation, Channel);
             }
         }
     }

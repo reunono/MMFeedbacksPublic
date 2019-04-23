@@ -27,7 +27,7 @@ namespace MoreMountains.Feedbacks
 
     public struct MMCameraZoomEvent
     {
-        public delegate void Delegate(MMCameraZoomModes mode, float newFieldOfView, float transitionDuration, float duration);
+        public delegate void Delegate(MMCameraZoomModes mode, float newFieldOfView, float transitionDuration, float duration, int channel);
         
         static private event Delegate OnEvent;
 
@@ -41,15 +41,15 @@ namespace MoreMountains.Feedbacks
             OnEvent -= callback;
         }
 
-        static public void Trigger(MMCameraZoomModes mode, float newFieldOfView, float transitionDuration, float duration)
+        static public void Trigger(MMCameraZoomModes mode, float newFieldOfView, float transitionDuration, float duration, int channel)
         {
-            OnEvent?.Invoke(mode, newFieldOfView, transitionDuration, duration);
+            OnEvent?.Invoke(mode, newFieldOfView, transitionDuration, duration, channel);
         }
     }
     
     public struct MMCameraShakeEvent
     {
-        public delegate void Delegate(float duration, float amplitude, float frequency);
+        public delegate void Delegate(float duration, float amplitude, float frequency, int channel);
         static private event Delegate OnEvent;
 
         static public void Register(Delegate callback)
@@ -62,9 +62,9 @@ namespace MoreMountains.Feedbacks
             OnEvent -= callback;
         }
 
-        static public void Trigger(float duration, float amplitude, float frequency)
+        static public void Trigger(float duration, float amplitude, float frequency, int channel)
         {
-            OnEvent?.Invoke(duration, amplitude, frequency);
+            OnEvent?.Invoke(duration, amplitude, frequency, channel);
         }
     }
     
@@ -73,8 +73,9 @@ namespace MoreMountains.Feedbacks
 	/// A class to add to your camera. It'll listen to MMCameraShakeEvents and will shake your camera accordingly
 	/// </summary>
 	public class MMCameraShaker : MonoBehaviour
-	{
-		protected MMWiggle _wiggle;
+    {
+        public int Channel = 0;
+        protected MMWiggle _wiggle;
 
 		/// <summary>
 		/// On Awake, grabs the MMShaker component
@@ -105,8 +106,12 @@ namespace MoreMountains.Feedbacks
 		/// When a MMCameraShakeEvent is caught, shakes the camera
 		/// </summary>
 		/// <param name="shakeEvent">Shake event.</param>
-		public virtual void OnCameraShakeEvent(float duration, float amplitude, float frequency)
+		public virtual void OnCameraShakeEvent(float duration, float amplitude, float frequency, int channel)
 		{
+            if (channel != Channel)
+            {
+                return;
+            }
 			this.ShakeCamera (duration, amplitude, frequency);
 		}
 

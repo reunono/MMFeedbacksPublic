@@ -9,7 +9,7 @@ namespace MoreMountains.Feedbacks
 
     public struct MMFlashEvent
     {
-        public delegate void Delegate(Color flashColor, float duration, float alpha, int flashID);
+        public delegate void Delegate(Color flashColor, float duration, float alpha, int flashID, int channel);
         static private event Delegate OnEvent;
 
         static public void Register(Delegate callback)
@@ -22,9 +22,9 @@ namespace MoreMountains.Feedbacks
             OnEvent -= callback;
         }
 
-        static public void Trigger(Color flashColor, float duration, float alpha, int flashID)
+        static public void Trigger(Color flashColor, float duration, float alpha, int flashID, int channel)
         {
-            OnEvent?.Invoke(flashColor, duration, alpha, flashID);
+            OnEvent?.Invoke(flashColor, duration, alpha, flashID, channel);
         }
     }
     
@@ -34,7 +34,9 @@ namespace MoreMountains.Feedbacks
     /// Add this class to an image and it'll flash when getting a MMFlashEvent
     /// </summary>
     public class MMFlash : MonoBehaviour
-	{
+    {
+        /// the channel to receive flash events on
+        public int Channel = 0;
         /// the ID of this MMFlash object. When triggering a MMFlashEvent you can specify an ID, and only MMFlash objects with this ID will answer the call and flash, allowing you to have more than one flash object in a scene
         public int FlashID = 0;
 
@@ -99,12 +101,13 @@ namespace MoreMountains.Feedbacks
 		/// <summary>
 		/// When getting a flash event, we turn our image on
 		/// </summary>
-		public void OnMMFlashEvent(Color flashColor, float duration, float alpha, int flashID)
+		public void OnMMFlashEvent(Color flashColor, float duration, float alpha, int flashID, int channel)
         {
-            if (flashID != FlashID)
+            if ((flashID != FlashID) || (channel != Channel))
             {
                 return;
             }
+            
             if (!_flashing)
             {
                 _flashing = true;

@@ -11,8 +11,10 @@ namespace MoreMountains.FeedbacksForThirdParty
             "with Depth of Field active, and a MMDepthOfFieldShaker component.")]
     [FeedbackPath("PostProcess/Depth Of Field")]
     public class MMFeedbackDepthOfField : MMFeedback
-    {        
+    {
         [Header("Depth Of Field")]
+        public int Channel = 0;
+
         public float ShakeDuration = 0.2f;
         public bool RelativeIntensities = false;
 
@@ -29,7 +31,7 @@ namespace MoreMountains.FeedbacksForThirdParty
         {
             if (Active)
             {
-                MMDepthOfFieldShakeEvent.Trigger(ShakeDuration, ShakeFocusDistance, ShakeFocusDistanceAmplitude, ShakeAperture, ShakeApertureAmplitude, ShakeFocalLength, ShakeFocalLengthAmplitude, attenuation);
+                MMDepthOfFieldShakeEvent.Trigger(ShakeDuration, ShakeFocusDistance, ShakeFocusDistanceAmplitude, ShakeAperture, ShakeApertureAmplitude, ShakeFocalLength, ShakeFocalLengthAmplitude, attenuation, Channel);
             }
         }
     }

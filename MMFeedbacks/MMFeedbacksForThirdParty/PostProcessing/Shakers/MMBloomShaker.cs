@@ -12,6 +12,7 @@ namespace MoreMountains.FeedbacksForThirdParty
     [RequireComponent(typeof(PostProcessVolume))]
     public class MMBloomShaker : MonoBehaviour
     {
+        public int Channel = 0;
         public float ShakeDuration = 0.2f;
         public bool RelativeIntensity = false;
         public AnimationCurve ShakeIntensity = new AnimationCurve(new Keyframe(0, 0), new Keyframe(0.5f, 1), new Keyframe(1, 0));
@@ -83,8 +84,13 @@ namespace MoreMountains.FeedbacksForThirdParty
         }
 
 
-        public virtual void OnBloomShakeEvent(float duration, AnimationCurve intensity, float intensityAmplitude, AnimationCurve threshold, float thresholdAmplitude, bool relativeIntensity = false, float attenuation = 1.0f)
-        {            
+        public virtual void OnBloomShakeEvent(float duration, AnimationCurve intensity, float intensityAmplitude, AnimationCurve threshold, float thresholdAmplitude, bool relativeIntensity = false, float attenuation = 1.0f, int channel = 0)
+        {
+            if (channel != Channel)
+            {
+                return;
+            }
+
             ShakeDuration = duration;
             ShakeIntensity = intensity;
             ShakeIntensityAmplitude = intensityAmplitude * attenuation;
@@ -107,7 +113,7 @@ namespace MoreMountains.FeedbacksForThirdParty
 
     public struct MMBloomShakeEvent
     {
-        public delegate void Delegate(float duration, AnimationCurve intensity, float intensityAmplitude, AnimationCurve threshold, float thresholdAmplitude, bool relativeIntensity = false, float attenuation = 1.0f);
+        public delegate void Delegate(float duration, AnimationCurve intensity, float intensityAmplitude, AnimationCurve threshold, float thresholdAmplitude, bool relativeIntensity = false, float attenuation = 1.0f, int channel = 0);
         static private event Delegate OnEvent;
 
         static public void Register(Delegate callback)
@@ -120,9 +126,9 @@ namespace MoreMountains.FeedbacksForThirdParty
             OnEvent -= callback;
         }
 
-        static public void Trigger(float duration, AnimationCurve intensity, float intensityAmplitude, AnimationCurve threshold, float thresholdAmplitude, bool relativeIntensity = false, float attenuation = 1.0f)
+        static public void Trigger(float duration, AnimationCurve intensity, float intensityAmplitude, AnimationCurve threshold, float thresholdAmplitude, bool relativeIntensity = false, float attenuation = 1.0f, int channel = 0)
         {
-            OnEvent?.Invoke(duration, intensity, intensityAmplitude, threshold, thresholdAmplitude, relativeIntensity, attenuation);
+            OnEvent?.Invoke(duration, intensity, intensityAmplitude, threshold, thresholdAmplitude, relativeIntensity, attenuation, channel);
         }
     }
 }

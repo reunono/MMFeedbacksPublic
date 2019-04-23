@@ -12,6 +12,8 @@ namespace MoreMountains.FeedbacksForThirdParty
     [RequireComponent(typeof(PostProcessVolume))]
     public class MMColorGradingShaker : MonoBehaviour
     {
+        public int Channel = 0;
+
         public float ShakeDuration = 1f;
         public bool RelativeIntensity = true;
 
@@ -102,8 +104,13 @@ namespace MoreMountains.FeedbacksForThirdParty
 
 
         public virtual void OnMMColorGradingShakeEvent(float duration, AnimationCurve postExposure, float postExposureAmplitude, AnimationCurve hueShift, float hueShiftAmplitude,
-            AnimationCurve saturation, float saturationAmplitude, AnimationCurve contrast, float contrastAmplitude, bool relativeIntensity = false, float attenuation = 1.0f)
+            AnimationCurve saturation, float saturationAmplitude, AnimationCurve contrast, float contrastAmplitude, bool relativeIntensity = false, float attenuation = 1.0f, int channel = 0)
         {            
+            if (channel != Channel)
+            {
+                return;
+            }
+
             ShakeDuration = duration;
             RelativeIntensity = relativeIntensity;
 
@@ -136,7 +143,7 @@ namespace MoreMountains.FeedbacksForThirdParty
     public struct MMColorGradingShakeEvent
     {
         public delegate void Delegate(float duration, AnimationCurve postExposure, float postExposureAmplitude, AnimationCurve hueShift, float hueShiftAmplitude,
-            AnimationCurve saturation, float saturationAmplitude, AnimationCurve contrast, float contrastAmplitude, bool relativeIntensity = false, float attenuation = 1.0f);
+            AnimationCurve saturation, float saturationAmplitude, AnimationCurve contrast, float contrastAmplitude, bool relativeIntensity = false, float attenuation = 1.0f, int channel = 0);
         static private event Delegate OnEvent;
 
         static public void Register(Delegate callback)
@@ -150,10 +157,10 @@ namespace MoreMountains.FeedbacksForThirdParty
         }
 
         static public void Trigger(float duration, AnimationCurve postExposure, float postExposureAmplitude, AnimationCurve hueShift, float hueShiftAmplitude,
-            AnimationCurve saturation, float saturationAmplitude, AnimationCurve contrast, float contrastAmplitude, bool relativeIntensity = false, float attenuation = 1.0f)
+            AnimationCurve saturation, float saturationAmplitude, AnimationCurve contrast, float contrastAmplitude, bool relativeIntensity = false, float attenuation = 1.0f, int channel = 0)
         {
             OnEvent?.Invoke(duration, postExposure, postExposureAmplitude, hueShift, hueShiftAmplitude,
-            saturation, saturationAmplitude, contrast, contrastAmplitude, relativeIntensity, attenuation);
+            saturation, saturationAmplitude, contrast, contrastAmplitude, relativeIntensity, attenuation, channel);
         }
     }
 }

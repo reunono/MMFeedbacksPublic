@@ -12,6 +12,7 @@ namespace MoreMountains.FeedbacksForThirdParty
     [RequireComponent(typeof(PostProcessVolume))]
     public class MMDepthOfFieldShaker : MonoBehaviour
     {
+        public int Channel = 0;
 
         public float ShakeDuration = 0.2f;
         public bool RelativeIntensities = false;
@@ -98,8 +99,14 @@ namespace MoreMountains.FeedbacksForThirdParty
 
         public virtual void OnDepthOfFieldShakeEvent(float duration, AnimationCurve focusDistanceIntensity, float focusDistanceAmplitude,
                                                         AnimationCurve apertureIntensity, float apertureAmplitude,
-                                                        AnimationCurve focalLengthIntensity, float focalLengthAmplitude, float attenuation = 1.0f)
+                                                        AnimationCurve focalLengthIntensity, float focalLengthAmplitude, float attenuation = 1.0f,
+                                                        int channel = 0)
         {
+            if (channel != Channel)
+            {
+                return;
+            }
+
             ShakeDuration = duration;
             ShakeFocusDistance = focusDistanceIntensity;
             ShakeFocusDistanceAmplitude = focusDistanceAmplitude;
@@ -125,7 +132,7 @@ namespace MoreMountains.FeedbacksForThirdParty
     {
         public delegate void Delegate(float duration, AnimationCurve focusDistanceIntensity, float focusDistanceAmplitude,
                                                         AnimationCurve apertureIntensity, float apertureAmplitude,
-                                                        AnimationCurve focalLengthIntensity, float focalLengthAmplitude, float attenuation = 1.0f);
+                                                        AnimationCurve focalLengthIntensity, float focalLengthAmplitude, float attenuation = 1.0f, int channel = 0);
         static private event Delegate OnEvent;
 
         static public void Register(Delegate callback)
@@ -140,9 +147,9 @@ namespace MoreMountains.FeedbacksForThirdParty
 
         static public void Trigger(float duration, AnimationCurve focusDistanceIntensity, float focusDistanceAmplitude,
                                                         AnimationCurve apertureIntensity, float apertureAmplitude,
-                                                        AnimationCurve focalLengthIntensity, float focalLengthAmplitude, float attenuation = 1.0f)
+                                                        AnimationCurve focalLengthIntensity, float focalLengthAmplitude, float attenuation = 1.0f, int channel = 0)
         {
-            OnEvent?.Invoke(duration, focusDistanceIntensity, focusDistanceAmplitude, apertureIntensity, apertureAmplitude, focalLengthIntensity, focalLengthAmplitude, attenuation);
+            OnEvent?.Invoke(duration, focusDistanceIntensity, focusDistanceAmplitude, apertureIntensity, apertureAmplitude, focalLengthIntensity, focalLengthAmplitude, attenuation, channel);
         }
     }
 }

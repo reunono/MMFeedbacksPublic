@@ -174,8 +174,8 @@ namespace MoreMountains.Feedbacks
 		/// </summary>
 		/// <param name="timeScaleProperties">Time scale properties.</param>
 		protected virtual void SetTimeScale(TimeScaleProperties timeScaleProperties)
-		{
-			_timeScaleProperties.Push(timeScaleProperties);
+        {
+            _timeScaleProperties.Push(timeScaleProperties);
 		}
 
 		/// <summary>
@@ -207,7 +207,7 @@ namespace MoreMountains.Feedbacks
 		/// <param name="newNormalTimeScale">New normal time scale.</param>
 		public virtual void SetNormalTimeScale(float newNormalTimeScale)
 		{
-			NormalTimescale = newNormalTimeScale;
+            NormalTimescale = newNormalTimeScale;
 		}
 
 		/// <summary>

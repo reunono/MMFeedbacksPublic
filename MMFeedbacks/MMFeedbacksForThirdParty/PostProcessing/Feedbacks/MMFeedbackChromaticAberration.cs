@@ -12,6 +12,7 @@ namespace MoreMountains.FeedbacksForThirdParty
     public class MMFeedbackChromaticAberration : MMFeedback
     {
         [Header("Chromatic Aberration")]
+        public int Channel = 0;
         public AnimationCurve Intensity = new AnimationCurve(new Keyframe(0, 0), new Keyframe(0.5f, 1), new Keyframe(1, 0));
         public float Duration = 0.2f;
         public float Amplitude = 1.0f;
@@ -21,7 +22,7 @@ namespace MoreMountains.FeedbacksForThirdParty
         {
             if (Active)
             {
-                MMChromaticAberrationShakeEvent.Trigger(Intensity, Duration, Amplitude, RelativeIntensity, attenuation);
+                MMChromaticAberrationShakeEvent.Trigger(Intensity, Duration, Amplitude, RelativeIntensity, attenuation, Channel);
             }
         }
     }

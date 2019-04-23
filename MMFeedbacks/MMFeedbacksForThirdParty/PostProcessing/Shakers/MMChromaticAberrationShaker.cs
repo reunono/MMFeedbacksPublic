@@ -12,6 +12,7 @@ namespace MoreMountains.FeedbacksForThirdParty
     [RequireComponent(typeof(PostProcessVolume))]
     public class MMChromaticAberrationShaker : MonoBehaviour
     {
+        public int Channel = 0;
         public AnimationCurve ShakeIntensity = new AnimationCurve(new Keyframe(0, 0), new Keyframe(0.5f, 1), new Keyframe(1, 0));
         public float ShakeDuration = 0.2f;
         public float ShakeAmplitude = 1.0f;
@@ -75,8 +76,13 @@ namespace MoreMountains.FeedbacksForThirdParty
         }
 
 
-        public virtual void OnMMChromaticAberrationShakeEvent(AnimationCurve intensity, float duration, float amplitude, bool relativeIntensity = false, float attenuation = 1.0f)
+        public virtual void OnMMChromaticAberrationShakeEvent(AnimationCurve intensity, float duration, float amplitude, bool relativeIntensity = false, float attenuation = 1.0f, int channel = 0)
         {            
+            if (channel != Channel)
+            {
+                return;
+            }
+
             ShakeDuration = duration;
             ShakeIntensity = intensity;
             ShakeAmplitude = amplitude * attenuation;
@@ -97,7 +103,7 @@ namespace MoreMountains.FeedbacksForThirdParty
 
     public struct MMChromaticAberrationShakeEvent
     {
-        public delegate void Delegate(AnimationCurve intensity, float duration, float amplitude, bool relativeIntensity = false, float attenuation = 1.0f);
+        public delegate void Delegate(AnimationCurve intensity, float duration, float amplitude, bool relativeIntensity = false, float attenuation = 1.0f, int channel = 0);
         static private event Delegate OnEvent;
 
         static public void Register(Delegate callback)
@@ -110,9 +116,9 @@ namespace MoreMountains.FeedbacksForThirdParty
             OnEvent -= callback;
         }
 
-        static public void Trigger(AnimationCurve intensity, float duration, float amplitude, bool relativeIntensity = false, float attenuation = 1.0f)
+        static public void Trigger(AnimationCurve intensity, float duration, float amplitude, bool relativeIntensity = false, float attenuation = 1.0f, int channel = 0)
         {
-            OnEvent?.Invoke(intensity, duration, amplitude, relativeIntensity, attenuation);
+            OnEvent?.Invoke(intensity, duration, amplitude, relativeIntensity, attenuation, channel);
         }
     }
 }

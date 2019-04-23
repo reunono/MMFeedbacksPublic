@@ -13,6 +13,8 @@ namespace MoreMountains.FeedbacksForThirdParty
     public class MMCinemachineCameraShaker : MonoBehaviour
     {
         [Header("Settings")]
+        /// the channel to receive events on
+        public int Channel = 0;
         /// The default amplitude that will be applied to your shakes if you don't specify one
         public float DefaultShakeAmplitude = .5f;
         /// The default frequency that will be applied to your shakes if you don't specify one
@@ -120,8 +122,12 @@ namespace MoreMountains.FeedbacksForThirdParty
             _targetFrequency = IdleFrequency;
         }
 
-        public virtual void OnCameraShakeEvent(float duration, float amplitude, float frequency)
+        public virtual void OnCameraShakeEvent(float duration, float amplitude, float frequency, int channel)
         {
+            if (channel != Channel)
+            {
+                return;
+            }
             this.ShakeCamera(duration, amplitude, frequency);
         }
 
@@ -137,7 +143,7 @@ namespace MoreMountains.FeedbacksForThirdParty
 
         protected virtual void TestShake()
         {
-            MMCameraShakeEvent.Trigger(TestDuration, TestAmplitude, TestFrequency);
+            MMCameraShakeEvent.Trigger(TestDuration, TestAmplitude, TestFrequency, 0);
         }
     }
 }

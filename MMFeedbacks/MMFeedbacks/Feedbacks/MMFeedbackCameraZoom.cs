@@ -13,6 +13,8 @@ namespace MoreMountains.Feedbacks
     public class MMFeedbackCameraZoom : MMFeedback
     {
         [Header("Camera Zoom")]
+        /// the channel to broadcast that zoom event on
+        public int Channel = 0;
         /// the zoom mode (for : forward for TransitionDuration, static for Duration, backwards for TransitionDuration)
         public MMCameraZoomModes ZoomMode = MMCameraZoomModes.For;
         /// the target field of view
@@ -31,7 +33,7 @@ namespace MoreMountains.Feedbacks
         {
             if (Active)
             {
-                MMCameraZoomEvent.Trigger(ZoomMode, ZoomFieldOfView, ZoomTransitionDuration, ZoomDuration);
+                MMCameraZoomEvent.Trigger(ZoomMode, ZoomFieldOfView, ZoomTransitionDuration, ZoomDuration, Channel);
             }
         }
     }
