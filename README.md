@@ -1,5 +1,16 @@
 # MMFeedbacks
 
+![MMFeedbacks on the asset store](https://moremountains.com/assets/resources/mmfeedbacks/mmfeedbacks0.png)
+
+This repository contains the initial version of the MMFeedbacks. You'll find a [more advanced version](https://assetstore.unity.com/packages/tools/utilities/mmfeedbacks-155004?aid=1011lKhG) of it on the [Asset Store](https://assetstore.unity.com/packages/tools/utilities/mmfeedbacks-155004?aid=1011lKhG), with more features, more feedbacks, more tools and bonuses. This repository won't evolve much past this point, the only version I'll maintain and improve on from now on is the one on the Asset Store. 
+
+[MMFeedbacks on the Asset Store](https://assetstore.unity.com/packages/tools/utilities/mmfeedbacks-155004?aid=1011lKhG).
+
+
+___
+
+## Why MMFeedbacks?
+
 I strongly believe **game feel** (or juice, or microinteractions, or feedbacks, or whatever you prefer to call it) is one of the most important parts of game design. Making sure the player understands the consequences of their actions is the best way to make sure interactions are rewarding and engaging. Providing proper feedback when the player makes an action, or when something significant happens in the game is mandatory. Whether it's a screenshake, a flash, an object's scale bumping, or all of these at once, it will only make the experience more **satisfying**.
 
 You can learn more about feedbacks in Martin Jonasson and Petri Purho's talk ["Juice it or lose it"](https://www.youtube.com/watch?v=Fy0aCDmgnxg), the wonderful "[Art of screenshake](https://www.youtube.com/watch?v=AJdEqssNZ-U)" talk by Jan Willem Nijman, or my own talk about [game feel and fast prototyping at Unite Los Angeles in 2018](https://www.youtube.com/watch?v=NU29QKag8a0).
