@@ -4,7 +4,7 @@
 
 This repository contains the initial version of the MMFeedbacks. You'll find a [more advanced version](https://assetstore.unity.com/packages/tools/utilities/mmfeedbacks-155004?aid=1011lKhG) of it on the [Asset Store](https://assetstore.unity.com/packages/tools/utilities/mmfeedbacks-155004?aid=1011lKhG), with more features, more feedbacks, more tools and bonuses. This repository won't evolve much past this point, the only version I'll maintain and improve on from now on is the one on the Asset Store. 
 
-[MMFeedbacks on the Asset Store](https://assetstore.unity.com/packages/tools/utilities/mmfeedbacks-155004?aid=1011lKhG).
+[Check out MMFeedbacks on the Asset Store](https://assetstore.unity.com/packages/tools/utilities/mmfeedbacks-155004?aid=1011lKhG).
 
 
 ___
