@@ -2,9 +2,9 @@
 
 ![MMFeedbacks on the asset store](https://moremountains.com/assets/resources/mmfeedbacks/mmfeedbacks0.png)
 
-This repository contains the initial version of the MMFeedbacks. You'll find a [more advanced version](https://assetstore.unity.com/packages/tools/utilities/mmfeedbacks-155004?aid=1011lKhG) of it on the [Asset Store](https://assetstore.unity.com/packages/tools/utilities/mmfeedbacks-155004?aid=1011lKhG), with more features, more feedbacks (70+ in v1.5), more tools, a pause system, loops, better inspectors, real time progress bars, duration previews, quality of life improvements, copy features, and a lot of bonuses. This repository won't evolve much past this point, the only version I'll maintain and improve on from now on is the one on the Asset Store. 
+This repository contains the initial version of the MMFeedbacks. You'll find a [more advanced version](http://u3d.as/2acD?aid=1011lKhG), now called FEEL, on the [Asset Store](http://u3d.as/2acD?aid=1011lKhG), with more features, more feedbacks (100+ in v2.0), more tools, a pause system, loops, better inspectors, real time progress bars, duration previews, quality of life improvements, copy features, and a lot of bonuses. This repository won't evolve much past this point, the only version I'll maintain and improve on from now on is the one on the Asset Store. 
 
-[Check out MMFeedbacks on the Asset Store](https://assetstore.unity.com/packages/tools/utilities/mmfeedbacks-155004?aid=1011lKhG).
+[Check out FEEL on the Asset Store](http://u3d.as/2acD?aid=1011lKhG).
 
 
 ___
